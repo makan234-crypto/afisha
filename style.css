@@ -1,0 +1,906 @@
+:root {
+    /* Основные цвета сайта */
+    --color-bg-dark: #0b0f16;          /* тёмный фон */
+    --color-bg-transparent: rgba(0, 0, 0, 0.7);
+
+    --color-accent: #ffcb05;           /* золотистый акцент */
+    --color-accent-hover: #ffdd33;
+
+    --color-danger: #ff3b3f;           /* красная кнопка */
+    --color-danger-hover: #ff6568;
+
+    --color-text-light: #ffffff;
+    --color-text-soft: #e0e0e0;
+    --color-shadow: rgba(0, 0, 0, 0.6);
+
+    /* Радиусы и тени */
+    --radius-big: 25px;
+    --radius-medium: 15px;
+    --radius-small: 10px;
+
+    --shadow-strong: 0 0 25px rgba(0,0,0,0.6);
+    --shadow-medium: 0 0 15px rgba(0,0,0,0.6);
+}
+
+body { 
+ padding-top: 140px !important; /* бегущая строка + шапка */
+  font-family: "Segoe UI", sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 25px;
+  display: inline-block;
+  max-width: 700px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+img.poster {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+h1 {
+  font-size: 2.3em;
+  margin-top: 20px;
+  color: #ffcb05;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+.info {
+  text-align: left;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.info strong {
+  color: #ffd700;
+}
+
+.director {
+  color: #ffd700;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.director:hover {
+  color: #ff8c00;
+}
+
+.director-info {
+  display: none;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.actors {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.actor {
+  text-align: center;
+  width: 120px;
+}
+
+.actor img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.btn {
+  background-color: #ff3b3f;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #ff6568;
+}
+
+.gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 600px;
+
+  /* фиксированный размер */
+  height: 350px;
+
+  object-fit: cover;     /* сохраняет пропорции, красиво обрезает */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  transition: 0.4s ease-in-out;
+}
+
+
+.gallery-btn {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  transition: 0.3s;
+}
+
+.gallery-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.gallery-btn:first-of-type {
+  left: 10px;
+}
+
+.gallery-btn:last-of-type {
+  right: 10px;
+}
+
+/* Боковые панели */
+
+.sidebar {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.sidebar.left {
+  left: 20px;
+}
+
+.sidebar.right {
+  right: 20px;
+}
+
+.sidebar img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.sidebar img:hover {
+  transform: scale(1.05);
+}
+
+.sidebar .btn {
+  background-color: #ff3b3f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar .btn:hover {
+  background-color: #ff6568;
+}
+
+.movie {
+  margin-bottom: 15px;
+}
+
+.movie p {
+  margin-top: 5px;
+  font-size: 0.95em;
+  color: #ffd700;
+}
+
+/* ФИКСИРУЕМ СТРОКУ СВЕРХУ */
+.marquee {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    z-index: 9999;
+    overflow: hidden; /* важно! */
+}
+
+/* ДВИЖУЩИЙСЯ ТЕКСТ ВНУТРИ */
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    color: #ffd700;
+    font-size: 22px;
+    animation: leftToRight 8s linear infinite;
+}
+
+/* АНИМАЦИЯ СЛЕВА → НАПРАВО */
+@keyframes leftToRight {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Чтобы сайт не заезжал под строку */
+body {
+    padding-top: 70px;
+}
+.site-header {
+    position: fixed;
+    top: 60px;               /* ниже бегущей строки */
+    left: 0;
+    width: 100%;
+    padding: 15px 2px;
+
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 9999;
+    box-shadow: var(--shadow-medium);
+}
+
+.logo {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--color-accent);
+    letter-spacing: 1px;
+}
+
+.nav a {
+    margin-left: 25px;
+    font-size: 1.05em;
+    color: var(--color-text-soft);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: var(--color-accent-hover);
+}
+.actors img {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.actors img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+.similar-movies {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+}
+
+.movies-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.movies-row .movie img {
+    width: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.movies-row .movie img:hover {
+    transform: scale(1.08);
+}
+
+.movies-row .movie p {
+    text-align: center;
+    color: #ffd700;
+    margin-top: 5px;
+}
+
+/* === 1. Огромная вертикальная реклама === */
+.big-ad {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 340px;
+    background: rgba(0,0,0,0.85);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+    text-align: center;
+    z-index: 999;
+}
+
+.big-ad img {
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.big-ad p {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+/* === 3. Мигающая реклама === */
+.fade-ad {
+    animation: glow 2s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+    to {
+        box-shadow: 0 0 40px rgba(255,255,255,0.7);
+    }
+}
+
+/* === 5. Реклама, выезжающая сбоку === */
+.side-ad {
+    position: fixed;
+    left: -350px;
+    top: 30%;
+    width: 300px;
+    background: rgba(0,0,0,0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    transition: 0.6s ease;
+    z-index: 1000;
+}
+
+.side-ad img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.side-ad.show {
+    left: 20px;
+}
+
+.close-ad {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: 60px;
+    padding: 25px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffd700;
+    border-radius: 15px 15px 0 0;
+    font-size: 1.2em;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+}
+
+.footer p {
+    margin: 5px 0;
+}
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+.marquee-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 9999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(255,255,255,0.2); }
+    50% { box-shadow: 0 0 25px rgba(255,255,255,0.6); }
+    100% { box-shadow: 0 0 5px rgba(255,255,255,0.2); }
+}
+
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 20px;
+    color: #fff;
+    animation: marquee 20s linear infinite;
+}
+/* Плавное появление */
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.9s ease;
+}
+
+.animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Плавное появление с увеличением (постер, кадры, фильмы, актёры) */
+.scale-anim {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: 0.8s ease;
+}
+
+.scale-anim.in-view {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Мягкое мерцание */
+.fade-pulse {
+    animation: fadePulse 2s infinite ease-in-out;
+}
+@keyframes fadePulse {
+    0%   { opacity: 0.8; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* Появление слева */
+.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 0.9s ease;
+}
+.slide-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Появление справа */
+.slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: 0.9s ease;
+}
+.slide-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Появление снизу */
+.slide-up {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 1s ease;
+}
+.slide-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Пульс кнопки */
+.btn {
+    transition: transform 0.3s ease;
+}
+.btn:hover {
+    transform: scale(1.08);
+}
+/* Запрещаем animate ломать transform для big-ad и side-ad */
+.big-ad.animate,
+.side-ad.animate {
+    transform: none !important;
+}
+
+
+/* Левая панель "Мы сотрудничаем с Кинопоиском" */
+.kp-partner {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 230px; /* увеличили ширину */
+
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  padding: 25px; /* больше отступов */
+  text-align: center;
+
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+
+  z-index: 999;
+  color: #ffd700;
+  font-size: 1.2em;
+
+  animation: kpFade 1.5s ease;
+}
+
+.kp-partner img {
+  width: 250px;      /* Увеличили логотип */
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 30px;
+
+  transition: 0.3s;
+}
+
+.kp-partner img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 200, 0, 0.6);
+}
+
+@keyframes kpFade {
+  from {
+      opacity: 0;
+      transform: translateY(-50%) scale(0.85);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+  }
+}
+.big-ad {
+    width: 250px;               /* ДЕЛАЕМ маленькой */
+    margin: 20px auto 0;        /* Ставим СВЕРХУ по центру */
+    text-align: center;
+    background: rgba(0,0,0,0.75);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+    /* Движение – не статичная */
+    animation: bigAdFloat 3s ease-in-out infinite alternate;
+}
+
+.big-ad img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.kp-left {
+    margin-top: 10px;
+    margin-left: 20px;   /* чтобы было слева */
+}
+
+.kp-left img {
+    width: 180px;        /* размер можно менять */
+    border-radius: 10px;
+}
+.side-ad-fixed {
+    position: fixed;
+    right: 20px;
+    top: 150px;       /* расстояние от верхнего края */
+    width: 180px;     /* маленькая реклама */
+    z-index: 999;
+    background: rgba(0,0,0,0.7);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.side-ad-fixed img {
+    width: 100%;
+    border-radius: 10px;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;     /* расстояние между логотипом и текстом */
+}
+
+.kp-logo {
+    width: 150px;      /* размер лого слева */
+    border-radius: 10px;
+}
+.side-ad-fixed {
+    position: fixed;
+    right: 20px;
+    top: 150px;
+    width: 180px;
+    z-index: 999;
+}
+
+.side-ad-fixed img {
+    width: 100%;
+    border-radius: 10px;
+}
+ .ad-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Общие настройки для всех реклам */
+.ad-right-top {
+    position: absolute;
+    right: 0;
+    width: 300px; /* ← размер рекламы */
+    z-index: 9999;
+}
+
+.ad-right-top img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+
+/* У каждой рекламы своё положение сверху */
+.ad1 { top: 50px    ; }
+.ad2 { top: 150px; }   /* ниже на 270px */
+.ad3 { top: 400px; }   /* ещё ниже */
+.ad4 { top: 600px; }   /* ещё ниже */
+
+.left-release-calendar {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 260px;
+    
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.left-release-calendar h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.left-release-calendar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-release-calendar li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.left-release-calendar .poster {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.left-release-calendar .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-release-calendar .title {
+    font-size: 14px;
+}
+
+.left-release-calendar .date {
+    font-size: 12px;
+    opacity: 0.7;
+}
+/* Контейнер календаря */
+.left-release-calendar {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 260px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.left-release-calendar h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* UL */
+.left-release-calendar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- ЭЛЕМЕНТ ФИЛЬМА --- */
+.left-release-calendar li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Плавные анимации наведения */
+    transition: transform 0.25s ease, background 0.25s ease;
+
+    /* АНИМАЦИЯ ПОЯВЛЕНИЯ */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* ПОЭТАПНОЕ ПОЯВЛЕНИЕ */
+.left-release-calendar li:nth-child(1) { animation-delay: 0.1s; }
+.left-release-calendar li:nth-child(2) { animation-delay: 0.2s; }
+.left-release-calendar li:nth-child(3) { animation-delay: 0.3s; }
+.left-release-calendar li:nth-child(4) { animation-delay: 0.4s; }
+.left-release-calendar li:nth-child(5) { animation-delay: 0.5s; }
+.left-release-calendar li:nth-child(6) { animation-delay: 0.6s; }
+.left-release-calendar li:nth-child(7) { animation-delay: 0.7s; }
+.left-release-calendar li:nth-child(8) { animation-delay: 0.8s; }
+.left-release-calendar li:nth-child(9) { animation-delay: 0.9s; }
+.left-release-calendar li:nth-child(10) { animation-delay: 1s; }
+.left-release-calendar li:nth-child(11) { animation-delay: 1.1s; }
+.left-release-calendar li:nth-child(12) { animation-delay: 1.2s; }
+
+/* Анимация появления */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- НАВЕДЕНИЕ --- */
+.left-release-calendar li:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* КАРТИНКА */
+.left-release-calendar .poster {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.left-release-calendar li:hover .poster {
+    transform: scale(1.12);
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* ТЕКСТ */
+.left-release-calendar .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-release-calendar .title,
+.left-release-calendar .date {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Название */
+.left-release-calendar li:hover .title {
+    color: #ffd34d;
+    transform: scale(1.05);
+}
+
+/* Дата */
+.left-release-calendar li:hover .date {
+    color: #ffffff;
+    opacity: 1;
+}
+/* Анимация мягкого свечения */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Общие настройки рекламы */
+.ad-right-top img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+
+    animation: glow 3s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* При наведении — сильное свечение и увеличение */
+.ad-right-top img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 230, 100, 0.9);
+}
